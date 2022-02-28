@@ -1,35 +1,43 @@
+const ADD = "+";
+const SUBTRACT = "-";
+const MULTIPLY = "*";
+const DIVIDE = "/";
 let calcResult = 0;
-function addBtnHandler() {
+let operation;
+function calculator(operation) {
   let currentInput = +userInput.value;
   let prevResult = calcResult;
-  calcResult += currentInput;
+  if (operation == ADD) {
+    calcResult += currentInput;
+  } else if (operation == SUBTRACT) {
+    calcResult -= currentInput;
+  } else if (operation == MULTIPLY) {
+    calcResult *= currentInput;
+  } else {
+    calcResult /= currentInput;
+  }
   userInput.value = "";
   userInput.focus();
-  outputResult(calcResult, `${prevResult} + ${currentInput} = ${calcResult} `);
+  outputResult(
+    calcResult,
+    `${prevResult} ${operation} ${currentInput} = ${calcResult} `
+  );
+}
+function addBtnHandler() {
+  operation = "+";
+  calculator(operation);
 }
 function subtractBtnHandler() {
-  let currentInput = +userInput.value;
-  let prevResult = calcResult;
-  calcResult -= currentInput;
-  userInput.value = "";
-  userInput.focus();
-  outputResult(calcResult, `${prevResult} - ${currentInput} = ${calcResult} `);
+  operation = "-";
+  calculator(operation);
 }
 function divideBtnHandler() {
-  let currentInput = +userInput.value;
-  let prevResult = calcResult;
-  calcResult /= currentInput;
-  userInput.value = "";
-  userInput.focus();
-  outputResult(calcResult, `${prevResult} / ${currentInput} = ${calcResult} `);
+  operation = "/";
+  calculator(operation);
 }
 function multiplyBtnHandler() {
-  let currentInput = +userInput.value;
-  let prevResult = calcResult;
-  calcResult *= currentInput;
-  userInput.value = "";
-  userInput.focus();
-  outputResult(calcResult, `${prevResult} * ${currentInput} = ${calcResult} `);
+  operation = "*";
+  calculator(operation);
 }
 function resetBtnHandler() {
   calcResult = 0;
