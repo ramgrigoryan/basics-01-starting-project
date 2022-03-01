@@ -16,6 +16,9 @@ function calculator(operation) {
   } else {
     calcResult /= currentInput;
   }
+  output(prevResult, currentInput);
+}
+function output(prevResult, currentInput) {
   userInput.value = "";
   userInput.focus();
   outputResult(
