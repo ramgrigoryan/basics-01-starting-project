@@ -43,20 +43,16 @@ function calculator(operation) {
 }
 
 function addBtnHandler() {
-  operation = "+";
-  calculator(operation);
+  calculator(" + ");
 }
 function subtractBtnHandler() {
-  operation = "-";
-  calculator(operation);
+  calculator(" - ");
 }
 function divideBtnHandler() {
-  operation = "/";
-  calculator(operation);
+  calculator(" / ");
 }
 function multiplyBtnHandler() {
-  operation = "*";
-  calculator(operation);
+  calculator(" * ");
 }
 function resetBtnHandler() {
   calcResult = 0;
